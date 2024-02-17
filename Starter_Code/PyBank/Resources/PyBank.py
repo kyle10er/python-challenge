@@ -1,8 +1,12 @@
-import csv
-import os
+import csv as Path
+
+
 
 #Calling csv file 
-csvpath = os.path.join("/Users/kyle.tavtener/Desktop/UPENN-VIRT-DATA-PT-12-2023-U-LOLC/02-Homework/03-Python/Starter_code/PyBank/Resources/budget_data.csv")
+with open(csvpath, "r") as csvfile:
+    csvreader = Path.reader(csvfile, delimiter=',')  # Use Path.reader instead of csv.reader
+    next(csvreader)
+print("CSV file path:", csvpath)
 
 #creating a function and initializing the variables to start
 def BudgetAnalysis(csvpath):
@@ -49,7 +53,7 @@ def BudgetAnalysis(csvpath):
     print(Summary)
 #Creating a summary table and then printing in the terminal and via an output file
 
-    output_file = "/Users/kyle.tavtener/Desktop/result.txt"
+    output_file = "Resources/budget_data.csv/result.txt"
     with open(output_file, "w") as results: 
         results.write(Summary)
 
